@@ -1,38 +1,118 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Karla:wght@400;700&display=swap");
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url(../public/img/page-background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-container {
+  min-height: 20vh;
+  max-height: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.start-container > h1 {
+  font-family: "Karla", Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.start-container > p {
+  min-width: 70%;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.start-container > button:focus,
+.questions-form > .submit:focus {
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start-container > button:active,
+.questions-form .submit:active {
+  box-shadow: inset 0.5rem 0.5rem 10px -5px rgba(0, 0, 0, 0.7);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.start-container > button,
+.questions-form .submit {
+  min-width: 15vw;
+  max-width: 22vh;
+  height: 3rem;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 500;
+  color: #f5f7fb;
+  background-color: #4d5b9e;
+  border: none;
+  border-radius: 15px;
+  margin-top: auto;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.questions-form .submit {
+  font-size: 11px;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.questions-form {
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  padding: 0 10vw;
+}
+
+.question {
+  color: #293264;
+  border-bottom: 1px solid #dbdef0;
+  margin-top: 1rem;
+}
+
+.question > h2 {
+  font-family: "Karla", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.question > .options {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 11px;
+  font-family: "Inter", Arial, sans-serif;
+  margin-bottom: 2em;
+}
+
+.question > .options li {
+  width: max-content;
+  color: #4d5b9e;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.questions--result {
+  font-family: "Inter", Arial, sans-serif;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.questions--result > span {
+  font-weight: 700;
 }
