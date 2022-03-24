@@ -26,7 +26,7 @@ export default function Questions(props) {
 
   function getArticles() {
     const elements = props.quizs.map((quiz) => {
-      const title = quiz.question;
+      const title = quiz.question.replace(/&quot;/g, '"');
       const answer = quiz.correct_answer;
       let options;
       if (quiz.type === "boolean") {

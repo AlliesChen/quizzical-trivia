@@ -12,7 +12,7 @@ export default function App() {
         "https://opentdb.com/api.php?amount=5&category=9"
       );
       const data = await res.json();
-      const { results } = data;
+      const { results } = await data;
       setQuizs(results);
     }
     if (started) {
