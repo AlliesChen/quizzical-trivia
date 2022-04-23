@@ -44,8 +44,11 @@ export default function Option(props) {
   }
 
   return (
-    <li key={element.option} onClick={pickAnswer} style={getStyles()}>
-      {element.option}
-    </li>
+    <li
+      key={element.option}
+      onClick={pickAnswer}
+      style={getStyles()}
+      dangerouslySetInnerHTML={props.createMarkup(element.option)}
+    />
   );
 }

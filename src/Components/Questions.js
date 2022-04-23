@@ -26,7 +26,7 @@ export default function Questions(props) {
 
   function getArticles() {
     const elements = props.quizs.map((quiz) => {
-      const title = quiz.question.replace(/&quot;/g, '"');
+      const title = quiz.question;
       const answer = quiz.correct_answer;
       let options;
       if (quiz.type === "boolean") {
@@ -48,6 +48,10 @@ export default function Questions(props) {
     return elements;
   }
 
+  function createMarkup(htmlText) {
+    return { __html: htmlText };
+  }
+
   function checkAnswer(e) {
     e.preventDefault();
     if (e.target.textContent === "Play again") {
@@ -56,9 +60,7 @@ export default function Questions(props) {
     }
     setSubmission(true);
     articles.forEach((article) => {
-      if (
-        article.options.find((item) => item.picked).option === article.answer
-      ) {
+      if (article.options.find((item) => item.picked) === article.answer) {
         setScore((prevScore) => prevScore + 1);
       }
     });
@@ -72,11 +74,12 @@ export default function Questions(props) {
         isSubmitted={submission}
         answer={article.answer}
         setArticles={setArticles}
+        createMarkup={createMarkup}
       />
     ));
     return (
       <article key={article.id} className="question">
-        <h2>{article.title}</h2>
+        <h2 dangerouslySetInnerHTML={createMarkup(article.title)} />
         <ul className="options">{lists}</ul>
       </article>
     );
